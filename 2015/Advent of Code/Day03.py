@@ -5,20 +5,33 @@ import sys
 
 def main():
     directions = list(sys.stdin.readline())
-    coord_x, coord_y = 0, 0
-    visited = { (coord_x, coord_y): True }
+    santa_coord_x, santa_coord_y = 0, 0
+    robo_coord_x, robo_coord_y = 0, 0
+    visited = { (santa_coord_x, santa_coord_y): True }
 
-    for direction in directions:
-        if direction == '^':
-            coord_y += 1
-        elif direction == 'v':
-            coord_y -= 1
-        elif direction == '<':
-            coord_x -= 1
+    for count, direction in enumerate(directions):
+        if count % 2 == 0:
+            if direction == '^':
+                santa_coord_y += 1
+            elif direction == 'v':
+                santa_coord_y -= 1
+            elif direction == '<':
+                santa_coord_x -= 1
+            else:
+                santa_coord_x += 1
+
+            visited[(santa_coord_x, santa_coord_y)] = True
         else:
-            coord_x += 1
+            if direction == '^':
+                robo_coord_y += 1
+            elif direction == 'v':
+                robo_coord_y -= 1
+            elif direction == '<':
+                robo_coord_x -= 1
+            else:
+                robo_coord_x += 1
 
-        visited[(coord_x, coord_y)] = True
+            visited[(robo_coord_x, robo_coord_y)] = True
 
     print len(visited)
 
