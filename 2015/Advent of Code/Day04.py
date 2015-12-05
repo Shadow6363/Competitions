@@ -13,7 +13,7 @@ def main():
         guess_hash = key_hash.copy()
         guess_hash.update(str(num))
 
-        if guess_hash.hexdigest().startswith('00000'):
+        if guess_hash.hexdigest().startswith('000000'):
             print num
             break
 
