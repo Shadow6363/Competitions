@@ -13,7 +13,9 @@ def main():
         else:
             floor -= 1
 
-    print floor
+        if floor == -1:
+            print num + 1
+            break
 
 if __name__ == '__main__':
     main()
