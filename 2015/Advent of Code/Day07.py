@@ -36,6 +36,8 @@ def main():
 
             instructions[rhs] = (lhs[0], OPERATIONS[lhs[1]], lhs[2])
 
+    instructions['b'] = 16076
+
     for wire, instruction in sorted(instructions.items(),
                                     key=lambda item: (len(item[0]), item[0])):
         if isinstance(instruction, (list, tuple)):
