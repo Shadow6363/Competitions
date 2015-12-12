@@ -55,6 +55,14 @@ def main():
         else:
             new_password = increment(new_password)
 
+    new_password = increment(new_password)
+
+    while True:
+        if letters_sorted(new_password) and two_pair(new_password):
+            break
+        else:
+            new_password = increment(new_password)
+
     print new_password
 
 
