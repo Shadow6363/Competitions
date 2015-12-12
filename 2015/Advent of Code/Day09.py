@@ -17,16 +17,16 @@ def tsp(start):
         for vertices in combos:
             vertices_start = frozenset(vertices) | {start}
 
-            costs[(vertices_start, start)] = float('inf')
+            costs[(vertices_start, start)] = float('-inf')
 
             for from_loc in vertices:
-                costs[(vertices_start, from_loc)] = min(
+                costs[(vertices_start, from_loc)] = max(
                     costs[(vertices_start - {from_loc}, dest_loc)] +
                     distances[from_loc][dest_loc]
                     for dest_loc in vertices_start - {from_loc}
                 )
 
-    return min(
+    return max(
         costs[(frozenset(distances[start].keys()) | {start}, vertex)]
         for vertex in distances[start].keys()
     )
@@ -40,7 +40,7 @@ def main():
         distances[from_loc][dest_loc] = int(distance)
         distances[dest_loc][from_loc] = int(distance)
 
-    print min(tsp(start) for start in distances.iterkeys())
+    print max(tsp(start) for start in distances.iterkeys())
 
 
 if __name__ == '__main__':
