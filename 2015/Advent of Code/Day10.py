@@ -9,7 +9,7 @@ def main():
 
     num_regex = re.compile(r'([0-9])\1*')
 
-    for _ in xrange(40):
+    for _ in xrange(50):
         result = []
         index = 0
         match = num_regex.search(start_num, index)
