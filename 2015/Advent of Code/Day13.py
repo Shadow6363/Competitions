@@ -14,6 +14,10 @@ def main():
 
         graph[person][other] = int(happy) if sign == 'gain' else -1*int(happy)
 
+    for key in graph.keys():
+        graph[key]['Chris'] = 0
+        graph['Chris'][key] = 0
+
     max_happiness = float('-inf')
 
     for permutation in itertools.permutations(graph.iterkeys(), len(graph)):
