@@ -8,7 +8,7 @@ import sys
 
 def main():
     package_weights = [int(weight.strip()) for weight in sys.stdin]
-    group_weight = sum(package_weights) / 3
+    group_weight = sum(package_weights) / 4
     sum_dict = collections.defaultdict(list)
     combo_length = 1
 
