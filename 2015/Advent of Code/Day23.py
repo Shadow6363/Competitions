@@ -44,7 +44,7 @@ class ChristmasComputer(object):
 
 def main():
     instructions = [instruction.strip().split(' ', 1) for instruction in sys.stdin]
-    computer = ChristmasComputer()
+    computer = ChristmasComputer(1)
 
     instruction_map = {
         'hlf': computer.hlf,
